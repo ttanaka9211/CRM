@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Routes configuration.
  *
@@ -21,8 +22,10 @@
  * @license       https://opensource.org/licenses/mit-license.php MIT License
  */
 
+use Cake\Core\Plugin;
 use Cake\Routing\Route\DashedRoute;
 use Cake\Routing\RouteBuilder;
+use Cake\Routing\Router;
 
 /*
  * The default class to use for all routes
@@ -41,6 +44,7 @@ use Cake\Routing\RouteBuilder;
  * inconsistently cased URLs when used with `:plugin`, `:controller` and
  * `:action` markers.
  */
+
 /** @var \Cake\Routing\RouteBuilder $routes */
 $routes->setRouteClass(DashedRoute::class);
 
@@ -84,3 +88,26 @@ $routes->scope('/', function (RouteBuilder $builder) {
  * });
  * ```
  */
+Router::defaultRouteClass(DashedRoute::class);
+
+Router::scope(
+    '/articles',
+    ['controller' => 'Articles'],
+    function ($routes) {
+        $routes->connect('/tagged/*', ['action' => 'tags']);
+    }
+);
+
+Router::scope('/', function ($routes) {
+    $routes->connect('/', [
+        'controller' => 'Pages',
+        'action' => 'display', 'home'
+    ]);
+    $routes->connect('/pages/*', [
+        'controller' => 'Pages',
+        'action' => 'display'
+    ]);
+    $routes->fallbacks();
+});
+
+Plugin::routes();

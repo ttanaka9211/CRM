@@ -1,7 +1,7 @@
 <?php
 /*
  * Local configuration file to provide any overrides to your app.php configuration.
-                         * Copy and save this file as app_local.php and make changes as required.
+ * Copy and save this file as app_local.php and make changes as required.
  * Note: It is not recommended to commit files with credentials such as app_local.php
  * into source code version control.
  */
@@ -36,7 +36,11 @@ return [
      */
     'Datasources' => [
         'default' => [
+<<<<<<< HEAD
             'host' => env('DB_HOST'),
+=======
+            'host' => env('DB_HOST'), 'localhost',
+>>>>>>> 9231b5c7dab080ad096ac609f008ffe395d63206
             /*
              * CakePHP will use the default DB port based on the driver selected
              * MySQL on MAMP uses port 8889, MAMP users will want to uncomment
@@ -44,10 +48,17 @@ return [
              */
             //'port' => 'non_standard_port_number',
 
+<<<<<<< HEAD
             'username' => env('DB_USERNAME'),
             'password' => env('DB_PASSWORD'),
 
             'database' => env('DB_DATABASE'),
+=======
+            'username' => env('DB_USERNAME'), 'my_app',
+            'password' => env('DB_PASSWORD'), 'secret',
+
+            'database' => env('DB_DATABASE'), 'my_app',
+>>>>>>> 9231b5c7dab080ad096ac609f008ffe395d63206
             /**
              * If not using the default 'public' schema with the PostgreSQL driver
              * set it here.
