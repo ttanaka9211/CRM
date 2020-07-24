@@ -73,4 +73,16 @@ class ArticlesController extends AppController
             return $this->redirect(['action' => 'index']);
         }
     }
+
+    public function tags()
+    {
+        $tags = $this->request->getParam('pass');
+        $articles = $this->Articles->find('tagged', [
+            'tags' => $tags
+        ]);
+        $this->set([
+            'articles' => $articles,
+            'tags' => $tags
+        ]);
+    }
 }
