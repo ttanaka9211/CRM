@@ -1,7 +1,7 @@
 <?php
 /*
  * Local configuration file to provide any overrides to your app.php configuration.
-                         * Copy and save this file as app_local.php and make changes as required.
+             * Copy and save this file as app_local.php and make changes as required.
  * Note: It is not recommended to commit files with credentials such as app_local.php
  * into source code version control.
  */
@@ -36,7 +36,7 @@ return [
      */
     'Datasources' => [
         'default' => [
-            'host' => 'localhost', env('DB_HOST'),
+            'host' => env('DB_HOST'), 'localhost',
             /*
              * CakePHP will use the default DB port based on the driver selected
              * MySQL on MAMP uses port 8889, MAMP users will want to uncomment
